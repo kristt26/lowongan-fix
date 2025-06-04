@@ -14,7 +14,7 @@ class Pelamar extends BaseController
 
     public function index(): string
     {
-        return view('Admin/" . strtolower(Pelamar) . "');
+        return view('admin/" . strtolower(Pelamar) . "');
     }
 
     public function store()

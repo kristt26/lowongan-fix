@@ -14,7 +14,7 @@ class Users extends BaseController
 
     public function index(): string
     {
-        return view('Admin/" . strtolower(Users) . "');
+        return view('admin/" . strtolower(Users) . "');
     }
 
     public function store()

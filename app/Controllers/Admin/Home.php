@@ -35,6 +35,6 @@ class Home extends BaseController
             ->join('detail_tahapan', 'detail_tahapan.id_detail_tahapan=lamaran.id_detail_tahapan', 'left')
             ->join('tahapan', 'tahapan.id_tahapan=detail_tahapan.id_tahapan', 'left')
             ->where('lowongan.id_periode', $periodeAktif->id_periode)->countAllResults();
-        return view('Admin/home', $data);
+        return view('admin/home', $data);
     }
 }

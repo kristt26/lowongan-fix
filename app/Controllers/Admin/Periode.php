@@ -20,7 +20,7 @@ class Periode extends BaseController
 
     public function index(): string
     {
-        return view('Admin/periode');
+        return view('admin/periode');
     }
 
     public function store()
