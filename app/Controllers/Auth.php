@@ -26,7 +26,7 @@ class Auth extends BaseController
             if (password_verify($this->request->getVar('password'), $user->password)) {
                 if ($user->role == 'Pelamar') {
                     $pelamar = $this->pelamar->where('id_users', $user->id_users)->first();
-                    $sessi = ['nama' => $pelamar->nama_pelamar, 'uid' => $user->id_users, 'isLogin' => true, 'role' => $user->role];
+                    $sessi = ['nama' => $pelamar->nama_pelamar, 'uid' => $user->id_users, 'isLogin' => true, 'role' => $user->role, 'email' => $pelamar->email];
                     session()->set($sessi);
                 } else {
                     $sessi = ['nama' => $user->username, 'uid' => $user->id_users, 'isLogin' => true, 'role' => $user->role];
@@ -56,6 +56,7 @@ class Auth extends BaseController
                     'telepon' => 'required|numeric',
                     'username' => 'required|is_unique[users.username]',
                     'password' => 'required',
+                    'email' => 'required',
                     'confirm_password' => 'required|matches[password]',
                 ];
 
@@ -77,13 +78,33 @@ class Auth extends BaseController
                     'nik'          => $this->request->getPost('nik'),
                     'nama_pelamar' => $this->request->getPost('nama_pelamar'),
                     'telepon'      => $this->request->getPost('telepon'),
+                    'email'      => $this->request->getPost('email'),
                     'id_users'     => $userId
                 ];
                 $this->pelamar->insert($pelamarData);
+                $mail = new \App\Libraries\MyMailer();
+                $to      = $this->request->getPost('email');
+                $subject = 'Success Registrasi';
+                $message = view('mail/email', [
+                    'nama_pelamar' => session()->get('nama'),
+                    'nik'=>$this->request->getPost('nik'),
+                    'username' => $this->request->getPost('username'),
+                    'password' => $this->request->getPost('password'),
+                    'email' => $this->request->getPost('email'),
+                    'link_login' => base_url('/auth'),
+                    'nama_perusahaan' => 'PT. Bintoro Indah Group',
+                    'tahun' => date('Y'),
+                ]);
 
-                return redirect()->to(base_url('auth'))->with('success', 'Pendaftaran berhasil. Silakan login.');
+                $result = $mail->send($to, $subject, $message);
+
+                if ($result === true) {
+                    return redirect()->to(base_url('mail/success'));
+                    // return 'Email berhasil dikirim!';
+                } else {
+                    return 'Gagal mengirim: ' . $result;
+                }
             }
-
             return view('register');
         } catch (\Throwable $th) {
             echo $th->getMessage();

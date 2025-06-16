@@ -9,6 +9,9 @@ $routes->group('/', function ($routes) {
     $routes->get('', 'Home::index');
     $routes->get('rekrutmen', 'Home::lowongan');
     $routes->get('detail/(:hash)', 'Home::detail/$1');
+    $routes->get('success', function () {
+        return view('mail/register_success');
+    });
 });
 
 $routes->group('home', function ($routes) {
@@ -102,4 +105,3 @@ $routes->group('detail', function ($routes) {
     $routes->put('edit', 'Admin\Detail::edit');
     $routes->delete('delete/(:hash)', 'Admin\Detail::delete/$1');
 });
-
