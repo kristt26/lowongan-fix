@@ -10,7 +10,7 @@ class PelamarModel extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nik','nama_pelamar','telepon','ktp','kk','ijazah','id_users', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'foto', 'skck', 'cv'];
+    protected $allowedFields    = ['nik','nama_pelamar','telepon','ktp','kk','ijazah','id_users', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'foto', 'skck', 'cv', 'email'];
 
     protected bool $allowEmptyInserts = false;
 }
