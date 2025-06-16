@@ -35,7 +35,7 @@ class Profile extends BaseController
             $param->cv = isset($param->berkas_cv) ? $lib->decodebase64($param->berkas_cv->base64, $param->cv ?? null) : $param->cv;
             $pelamar->update($param->id_pelamar, $param);
             $mail = new \App\Libraries\MyMailer();
-            $to      = session()->get('email');
+            $to      = $param->email;
             $subject = 'Profil dan Dokumen Anda Sudah Lengkap';
             $message = view('mail/profile', [
                 'nama_pelamar' => session()->get('nama'),

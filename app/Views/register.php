@@ -59,21 +59,28 @@
                         </div>
 
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input name="nama_pelamar" value="<?= old('nama_pelamar') ?>" type="text" class="form-control form-control-sm" placeholder="Nama Pelamar">
+                            <input name="nama_pelamar" value="<?= old('nama_pelamar') ?>" type="text" class="form-control form-control-sm" placeholder="Nama Pelamar" required>
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                         </div>
 
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input name="telepon" value="<?= old('telepon') ?>" type="text" class="form-control form-control-sm" placeholder="No HP">
+                            <input name="telepon" value="<?= old('telepon') ?>" type="text" class="form-control form-control-sm" placeholder="No HP" required>
                             <div class="form-control-icon">
                                 <i class="bi bi-telephone"></i>
                             </div>
                         </div>
 
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input name="username" value="<?= old('username') ?>" type="text" class="form-control form-control-sm" placeholder="Username Anda">
+                            <input name="email" value="<?= old('email') ?>" type="email" class="form-control form-control-sm" placeholder="Email Anda" required>
+                            <div class="form-control-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input name="username" value="<?= old('username') ?>" type="text" class="form-control form-control-sm" placeholder="Username Anda" required>
                             <div class="form-control-icon">
                                 <i class="bi bi-person-circle"></i>
                             </div>

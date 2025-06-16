@@ -47,7 +47,11 @@
                             <div class="col-md-5">
                                 <div class="mb-2">
                                     <label>Alamat</label>
-                                    <textarea class="form-control" ng-model="model.alamat" rows="7"></textarea>
+                                    <textarea class="form-control" ng-model="model.alamat" rows="4"></textarea>
+                                </div>
+                                <div class="mb-2">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" ng-model="model.email">
                                 </div>
                                 <div class="mb-2">
                                     <label>Tanggal Lahir</label>
