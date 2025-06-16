@@ -86,7 +86,7 @@ class Auth extends BaseController
                 $to      = $this->request->getPost('email');
                 $subject = 'Success Registrasi';
                 $message = view('mail/email', [
-                    'nama_pelamar' => session()->get('nama'),
+                    'nama_pelamar' => $this->request->getPost('nama_pelamar'),
                     'nik'=>$this->request->getPost('nik'),
                     'username' => $this->request->getPost('username'),
                     'password' => $this->request->getPost('password'),
