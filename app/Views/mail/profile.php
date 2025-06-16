@@ -21,7 +21,7 @@
                     <tr>
                         <td style="padding: 30px;">
                             <p style="font-size: 16px; margin-bottom: 20px;">
-                                Halo <strong>{nama_pelamar}</strong>,
+                                Halo <strong><?= esc($nama_pelamar) ?></strong>,
                             </p>
 
                             <p style="font-size: 16px; margin-bottom: 20px;">

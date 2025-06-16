@@ -99,7 +99,7 @@ class Auth extends BaseController
                 $result = $mail->send($to, $subject, $message);
 
                 if ($result === true) {
-                    return redirect()->to(base_url('mail/success'));
+                    return redirect()->to(base_url('success'));
                     // return 'Email berhasil dikirim!';
                 } else {
                     return 'Gagal mengirim: ' . $result;
