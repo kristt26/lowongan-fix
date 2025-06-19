@@ -13,4 +13,8 @@ class PeriodeModel extends Model
     protected $allowedFields    = ['periode','status'];
 
     protected bool $allowEmptyInserts = false;
+
+    public function getAktif() {
+        return $this->db->table('periode')->where('status', '1')->get()->getRow()->id_periode; 
+    }
 }

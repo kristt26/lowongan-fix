@@ -96,6 +96,15 @@
                             </li>
 
                         <?php endif ?>
+
+                        <?php if (session()->get('role') == 'Pimpinan') : ?>
+                            <li class="sidebar-item">
+                                <a href="/laporan" class='sidebar-link'>
+                                    <i class="bi bi-envelope-fill"></i> <!-- Pengajuan Pekerjaan -->
+                                    <span>Laporan Penerimaan</span>
+                                </a>
+                            </li>
+                        <?php endif ?>
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

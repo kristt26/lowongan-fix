@@ -13,6 +13,9 @@ class Auth extends BaseController
     }
     public function index(): string
     {
+        if ($this->user->where('role', 'Pimpinan')->countAllResults() == 0) {
+            $this->user->insert(['username' => 'Pimpinan', 'password' => password_hash('Pimpinan#1', PASSWORD_DEFAULT), 'role' => 'Pimpinan']);
+        }
         if ($this->user->countAllResults() == 0) {
             $this->user->insert(['username' => 'Administrator', 'password' => password_hash('Administrator#1', PASSWORD_DEFAULT), 'role' => 'Admin']);
         }

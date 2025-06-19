@@ -20,6 +20,12 @@ $routes->group('home', function ($routes) {
     $routes->get('rekrutmen', 'Home::readLowongan');
     $routes->get('read_rekrutmen', 'Home::readRekrutmen');
 });
+
+$routes->group('laporan', function ($routes) {
+    $routes->get('', 'Laporan::index');
+    $routes->get('export-excel', 'Laporan::exportExcel');
+    $routes->get('cetak', 'Laporan::cetak');
+});
 $routes->get('beranda', 'Admin\Home::index');
 
 $routes->group('auth', function ($routes) {
